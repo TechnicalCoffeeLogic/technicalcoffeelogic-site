@@ -1,5 +1,66 @@
 <script setup>
 
+import {onUpdated, ref, watch} from 'vue';
+import router from '../router';
+
+const itemNotSelected = "text-gray-300 hover:bg-gray-700 hover:text-white";
+const itemSelected = "bg-gray-900 text-white"
+const visible = ref("hidden");
+const homeSelected = ref(itemSelected);
+const projectsSelected = ref(itemNotSelected);
+const aboutSelected = ref(itemNotSelected);
+
+watch(router.currentRoute, SelectedMenuOption,{});
+
+/**
+ * * purpose: change the visibility of mobile menu
+ * * pass...: nothing
+ * * return.: nothing
+ */
+function Visibility(){
+    if (visible.value === "hidden"){
+        visible.value = "block"
+    }
+    else {
+        visible.value = "hidden";
+    }
+    
+}
+
+/**
+ * * purpose: change the highlited menu option to show what has been selected
+ * * pass...: nothing
+ * * return.: nothing
+ */
+function SelectedMenuOption() {
+
+    homeSelected.value = itemNotSelected;
+    projectsSelected.value = itemNotSelected;
+    aboutSelected.value = itemNotSelected;
+
+    if (router.currentRoute.value.name === "Home"){
+        homeSelected.value = itemSelected;
+    } 
+    else if (router.currentRoute.value.name === "Projects") {
+        projectsSelected.value = itemSelected;
+    }
+    else {
+        aboutSelected.value = itemSelected;
+    }
+
+}
+
+/**
+ * * purpose: change the highlited menu option of the mobile nav to show what has been selected
+ * * pass...: nothing
+ * * return.: nothing
+ */
+function SelectedMobileMenuOption() {
+    SelectedMenuOption();
+    Visibility();
+
+}
+
 </script>
 
 <template>
@@ -11,7 +72,7 @@
                     <!-- Mobile menu button-->
                     <button type="button"
                         class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-                        aria-controls="mobile-menu" aria-expanded="false">
+                        aria-controls="mobile-menu" aria-expanded="false" @click="Visibility()">
                         <span class="sr-only">Open main menu</span>
                         <!--
             Icon when menu is closed.
@@ -47,12 +108,11 @@
                     <div class="hidden sm:block sm:ml-6">
                         <div class="flex space-x-4">
                             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                            <router-link to="/" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
-                                aria-current="page">Home</router-link>
+                            <router-link to="/" class="px-3 py-2 rounded-md text-sm font-medium" :class="homeSelected">Home</router-link>
 
-                            <router-link to="/projects" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</router-link>
+                            <router-link to="/projects" class="px-3 py-2 rounded-md text-sm font-medium" :class="projectsSelected">Projects</router-link>
                         
-                            <router-link to="/about" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</router-link>
+                            <router-link to="/about" class="px-3 py-2 rounded-md text-sm font-medium" :class="aboutSelected">About</router-link>
                         </div>
                     </div>
                 </div>
@@ -62,16 +122,17 @@
         </div>
 
         <!-- Mobile menu, show/hide based on menu state. -->
-        <div class="sm:hidden" id="mobile-menu">
+        <div class="sm:hidden" :class="visible" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                <router-link to="/" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium"
-                    aria-current="page">Home</router-link>
-                <router-link to="/projects"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</router-link>
+                <router-link to="/" :class="homeSelected" class="block px-3 py-2 rounded-md text-base font-medium"
+                    @click="Visibility()">Home</router-link>
 
-                <router-link to="/about"
-                    class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</router-link>
+                <router-link to="/projects" :class="projectsSelected" class="block px-3 py-2 rounded-md text-base font-medium" 
+                    @click="Visibility()">Projects</router-link>
+
+                <router-link to="/about" :class="aboutSelected" class="block px-3 py-2 rounded-md text-base font-medium" 
+                    @click="Visibility()">About</router-link>
 
             </div>
         </div>

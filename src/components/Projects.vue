@@ -1,10 +1,17 @@
 <script setup>
+
+import Header from './Header.vue';
+import Project from './Project.vue';
+
 </script> 
 
 <template>
-    <div>
-        <h1>Projects I have done</h1>
-    </div>
+    <Header :header-title="'Developed Projects'"></Header>
+    <ul>
+        <li>
+            <Project :title="'Genderle.com'" :description="'Like wordle, but with gender'" :image="'../assets/coffee-cup.png'"></Project>
+        </li>
+    </ul>
 </template>
 
 <style scoped>

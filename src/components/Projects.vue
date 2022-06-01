@@ -6,10 +6,10 @@ import Project from './Project.vue';
 </script> 
 
 <template>
-    <Header :header-title="'Developed Projects'"></Header>
+    <Header :header-title="'Projects'"></Header>
     <ul>
         <li>
-            <Project :title="'Genderle.com'" :description="'Like wordle, but with gender'" :image="'../assets/coffee-cup.png'"></Project>
+            <Project :title="'Genderle.com'" :description="'Like wordle, but with gender'" :src="'../../genderle-logo.png'"></Project>
         </li>
     </ul>
 </template>

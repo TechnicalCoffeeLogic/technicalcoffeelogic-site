@@ -1,10 +1,36 @@
 <script setup>
+
+import Header from './Header.vue';
+import AboutBlock from './AboutBlock.vue';
+
+const purposeBlurb = `Technical Coffee Logic aims to code to the glory of Christ👑. 
+                But what does that mean? As a Christian, Technical Coffee Logic believes 
+                that we can design and bring the best ideas to fruition, because we have 
+                a grasp and believe the truth. Christains understand that all things have 
+                been created by Christ👑 and is for Christ👑, furthermore we recognize that a man's chief end is to 
+                glorify God and enjoy Him forever, that means we should be able to enjoy all 
+                things to a better degree than an unbeliever. Therefore this would also 
+                apply to software, web, and App development. In short, Technical Coffee 
+                Logic's desire is that Christ's reign is seen through code and make a superb product since our motivation is not 
+                ourselves, but Christ👑 and His Kingdom.`;
+
+const missionBlurb = `These men who have turned the world upside down have come here also” — Acts 17:6
+                    The Mission of Technical Coffee Logic is to continue to turn the world upside down for Christ by 
+                    entering into the app development scene where there seems to be a lack of believers, whether that be
+                    local or on a larger stage.`
 </script>
 
 <template>
+    <Header :headerTitle="'About Technical Coffee Logic'"></Header>
+
     <div>
-        <h1>About this website</h1>
+        <AboutBlock :title="'Purpose 🔥'" :blurb="purposeBlurb">
+        </AboutBlock>
+
+        <AboutBlock :title="'Mission Statement 🔥'" :blurb="missionBlurb">
+        </AboutBlock>
     </div>
+
 </template>
 
 <style scoped>

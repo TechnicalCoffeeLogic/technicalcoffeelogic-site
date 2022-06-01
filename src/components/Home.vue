@@ -20,7 +20,7 @@ import Header from './Header.vue';
         <ul>            
             <li>
                 <InfoBlock :title="'🌎 Web Development'" 
-                           :description="'Single Page Web Apps, Progressive Web Apps, and website design using the vue.js progressive framework'">
+                           :description="'Single Page Web Apps and website design using the vue.js progressive framework'">
                 </InfoBlock>
             </li>
 

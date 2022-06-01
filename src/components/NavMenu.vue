@@ -113,6 +113,13 @@ function SelectedMobileMenuOption() {
                             <router-link to="/projects" class="px-3 py-2 rounded-md text-sm font-medium" :class="projectsSelected">Projects</router-link>
                         
                             <router-link to="/about" class="px-3 py-2 rounded-md text-sm font-medium" :class="aboutSelected">About</router-link>
+
+                            <a href="https://medium.com/@technicalcoffeelogic" target="_blank" class="px-3 py-2 rounded-md text-sm font-medium
+                             text-gray-400
+                             hover:text-white
+                             hover:bg-gray-700">
+                                Blog
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -134,6 +141,8 @@ function SelectedMobileMenuOption() {
                 <router-link to="/about" :class="aboutSelected" class="block px-3 py-2 rounded-md text-base font-medium" 
                     @click="Visibility()">About</router-link>
 
+                <a href="https://medium.com/@technicalcoffeelogic" target="_blank" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400"
+                    @click="Visibility()">Blog</a>
             </div>
         </div>
     </nav>

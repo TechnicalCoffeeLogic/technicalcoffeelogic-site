@@ -2,6 +2,7 @@
 
 import InfoBlock from './InfoBlock.vue';
 import Header from './Header.vue';
+import ContactBlock from './ContactBlock.vue';
 
 </script>
 
@@ -19,7 +20,7 @@ import Header from './Header.vue';
     <div>
         <ul>            
             <li>
-                <InfoBlock :title="'🌎 Web Development'" 
+                <InfoBlock :title="'💻 Web Development'" 
                            :description="'Single Page Web Apps and website design using the vue.js progressive framework'">
                 </InfoBlock>
             </li>
@@ -28,6 +29,10 @@ import Header from './Header.vue';
                  <InfoBlock :title="'📱 App Development'" 
                            :description="'Vue.js Progressive Web Apps'">
                 </InfoBlock>                
+            </li>
+
+            <li>
+                <ContactBlock :title="'☕ Contact For Info.'" :email="'TechnicalCoffeeLogic@gmail.com'" :twitter="'https://twitter.com/TechCoffeeLogic'" :twitterHandle="'@techCoffeeLogic'" ></ContactBlock>
             </li>
         </ul>
     </div>

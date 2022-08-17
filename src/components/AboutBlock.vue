@@ -1,18 +1,18 @@
 <script setup>
 
-defineProps(['title','blurb']);
+defineProps(['title', 'blurb']);
 
 </script>
 
 <template>
-<div class="bg-gray-700 text-gray-400 p-3 mt-3 mr-4 ml-4 w-5/6 rounded-md inline-block align-middle drop-shadow                
-            lg: text-center">
-        <div>
-            <h2 class="block xl:inline align-text-bottom tracking-tight font-extrabold 
-                        text-2xl">
-                {{title}}
-            </h2>
-            <p class="text-1xl tracking-tight sm:text-lg ">{{blurb}}</p>
+    <div class=" flex justify-center p-4">
+        <div class="bg-gray-100 text-gray-700 shadow-sm rounded-md sm:w-1/2 text-left p-4">
+            <div>
+                <h2 class="font-extrabold text-2xl pb-2">
+                    {{ title }}
+                </h2>
+                <p class="text-1xl tracking-tight sm:text-lg ">{{ blurb }}</p>
+            </div>
         </div>
     </div>
 </template>

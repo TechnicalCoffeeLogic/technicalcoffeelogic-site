@@ -1,7 +1,6 @@
 <script setup>
 
 import NavMenu from './components/NavMenu.vue';
-import Home from './components/Home.vue';
 
 </script>
 
@@ -12,11 +11,16 @@ import Home from './components/Home.vue';
 
 <style>
 #app {
-  font-family: monospace;
+  
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 0px;
+
+}
+
+body {
+    /* background-color: #f8f8f8; */
 }
 </style>

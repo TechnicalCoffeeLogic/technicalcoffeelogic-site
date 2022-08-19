@@ -20,7 +20,4 @@ import NavMenu from './components/NavMenu.vue';
 
 }
 
-body {
-    /* background-color: #f8f8f8; */
-}
 </style>

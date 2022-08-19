@@ -1,7 +1,6 @@
 <script setup>
 import FeatureSection from './FeatureSection.vue';
 import ContactBlock from './ContactBlock.vue';
-import { ChevronRightIcon } from '@heroicons/vue/solid'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -30,7 +29,7 @@ const navigation = [
               </div>
             </div>
             <div class="mt-12 -mb-16 sm:-mb-48 lg:m-0 lg:relative">
-              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
+              <div class="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 sm:pb-60 lg:max-w-none lg:px-0">
                 <!-- Illustration taken from Lucid Illustrations: https://lucid.pixsellz.io/ -->
                 <img class="w-full lg:absolute lg:inset-y-0 lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="../../public/TCLCoffeeCupOutline.png" alt="" />
               </div>

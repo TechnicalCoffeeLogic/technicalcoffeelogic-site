@@ -5,14 +5,14 @@ const features = [
   {
     name: 'Web Development',
     description:
-      'Single Page Web Apps and website design using the vue.js progressive framework',
+      'Single Page Web Apps and website design',
     icon: DesktopComputerIcon,
     emoji: '💻 ',
   },
   {
     name: 'App Development',
     description:
-      'Vue.js Progressive Web Apps and Flutter Apps',
+      'Progressive Web and Mobile Apps',
     icon: DeviceMobileIcon,
     emoji: '📱 ',
     
@@ -34,7 +34,7 @@ const features = [
         <dl class="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
           <div v-for="feature in features" :key="feature.name" class="relative">
             <dt>
-              <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+              <div class=" absolute flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
                 <component :is="feature.icon" class="h-6 w-6" aria-hidden="true" />
                 <!-- <p class="h-6 w-6" aria-hidden="true">{{feature.emoji}}</p> -->
               </div>

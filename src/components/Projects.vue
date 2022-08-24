@@ -9,7 +9,7 @@ const projects = [
       imageUrl:
         '../../genderle-logo.png',
     },
-    desc: 'like wordle but with gender',
+    desc: 'Like wordle but with gender',
     dateFull: '',
     stage: 'live',
     href: 'https://genderle.com/',
@@ -21,7 +21,7 @@ const projects = [
       imageUrl:
         '../../kingdompolitics-logo.ico',
     },
-    desc: 'the app that will save politics in your city',
+    desc: 'The app that will save politics in your city',
     dateFull: '',
     stage: 'live',
     href: 'https://kingdompolitics.io/',
@@ -31,7 +31,8 @@ const projects = [
 
 <!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+<div class=" flex justify-center pt-4 pb-40 sm:pb-60">
+  <div class="bg-white shadow overflow-hidden sm:rounded-md w-5/6 sm:w-2/3 rounded-md">
     <ul role="list" class="divide-y divide-gray-200">
       <li v-for="proj in projects" :key="proj.project.email">
         <a :href="proj.href" target="_blank" class="block hover:bg-gray-50">
@@ -69,5 +70,6 @@ const projects = [
       </li>
     </ul>
   </div>
+</div>
 </template>
 

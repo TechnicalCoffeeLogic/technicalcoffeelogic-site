@@ -1,8 +1,10 @@
 ---
-const {text} = Astro.props;
+
 ---
 
-<span class="text-gradient">{text}</span>
+<span class="text-gradient">
+  <slot/>
+</span>
 
 <style>
 	:root {

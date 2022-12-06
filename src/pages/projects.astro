@@ -1,0 +1,58 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/Project-Card.astro";
+import GradientText from "../components/Gradient-Text.astro";
+
+interface iProject {
+  href: string;
+  src: string;
+  title: string;
+  desc: string;
+}
+
+const projects = [
+  {
+    href: "https://www.genderle.com",
+    src: "/genderle-logo.png",
+    title: "Genderle",
+    desc: "Like Wordle, but with gender.",
+  },
+
+  {
+    href: "https://www.kingdompolitics.io",
+    src: "/kingdompolitics-logo.ico",
+    title: "Kingdom Politics",
+    desc: "Helping Monett, MO. elect righteous leaders.",
+  },
+];
+---
+
+<Layout title="Projects">
+  <main class="mt-10 sm:mt-0">
+    <div
+      class="max-w-7xl mx-auto py-12 px-4 text-center sm:px-6 lg:px-8 lg:py-24"
+    >
+      <div class="space-y-12">
+        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+          <h1
+            class="text-3xl font-bold tracking-tight sm:text-4xl sm:tracking-tight text-green-400"
+          >
+            Projects
+          </h1>
+        </div>
+      </div>
+      <ul class="flex flex-col items-center">
+        {
+          projects.map((project: iProject) => (
+            <ProjectCard
+              href={project.href}
+              src={project.src}
+              title={project.title}
+              desc={project.desc}
+            />
+          ))
+        }
+      </ul>
+    </div>
+  </main>
+</Layout>

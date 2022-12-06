@@ -1,0 +1,18 @@
+---
+const { href, src, title, desc } = Astro.props;
+---
+
+<li
+  class="shadow-md shadow-blue-200 p-5 m-5 rounded-lg outline outline-1 outline-green-500 w-80"
+>
+  <a href={href}>
+    <div class="w-100 flex justify-center m-5">
+      <img src={src} class="mx-auto h-20 w-20" />
+    </div>
+
+    <div>
+      <p class="text-xl font-bold">{title}</p>
+      <p>{desc}</p>
+    </div>
+  </a>
+</li>

@@ -1,0 +1,57 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactBlock from "../components/ContactBlock.astro";
+
+const contactBlurbs = [
+
+  {
+    title: "Twitter",
+    blurb: "@techCoffeeLogic",
+    href: "https://twitter.com/TechCoffeeLogic",
+  },
+  {
+    title: "YouTube",
+    blurb: "@technicalCoffeeLogic",
+    href: "https://www.youtube.com/@technicalcoffeelogic",
+  },
+  {
+    title: "GitHub",
+    blurb: "Technical Coffee Logic",
+    href: "https://github.com/TechnicalCoffeeLogic",
+  },
+];
+---
+
+<Layout title="Contact">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="space-y-12">
+      <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+        <h1 class="font-bold tracking-tight text-4xl text-green-400">
+          Contact
+        </h1>
+        <p class="text-xl text-gray-500">Technical Coffee Logic, LLC</p>
+      </div>
+    </div>
+  </div>
+  <ul role="list" class="flex items-start flex-col">
+    <li class="flex justify-start p-4">
+      <div class="text-gray-700 sm:w-1/2 text-left p-4">
+        <div>
+          <h2 class="font-extrabold text-2xl pb-2">Email</h2>
+          <p class="text-xl tracking-tight">
+            techCoffeeLogic@gmail.com
+          </p>
+        </div>
+      </div>
+    </li>
+    {
+      contactBlurbs.map((blurb) => (
+        <ContactBlock
+          title={blurb.title}
+          blurb={blurb.blurb}
+          href={blurb.href}
+        />
+      ))
+    }
+  </ul>
+</Layout>

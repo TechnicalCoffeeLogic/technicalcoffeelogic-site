@@ -1,0 +1,155 @@
+---
+import BlogCard from "../../components/BlogCard.astro";
+import SecondaryButton from "../../components/SecondaryButton.astro";
+import Layout from "../../layouts/Layout.astro";
+
+interface Page<T = any> {
+  /** result */
+  data: T[];
+  /** metadata */
+  /** the count of the first item on the page, starting from 0 */
+  start: number;
+  /** the count of the last item on the page, starting from 0 */
+  end: number;
+  /** total number of results */
+  total: number;
+  /** the current page number, starting from 1 */
+  currentPage: number;
+  /** number of items per page (default: 25) */
+  size: number;
+  /** number of last page */
+  lastPage: number;
+  url: {
+    /** url of the current page */
+    current: string;
+    /** url of the previous page (if there is one) */
+    prev: string | undefined;
+    /** url of the next page (if there is one) */
+    next: string | undefined;
+  };
+}
+
+export async function getStaticPaths({ paginate }: any) {
+  const BLOG_POSTS_PER_PAGE = 2;
+
+  // get and format all blog posts
+  let allPosts = await Astro.glob("../blog/*.md");
+  return paginate(allPosts, { pageSize: BLOG_POSTS_PER_PAGE });
+}
+
+let { page } = Astro.props;
+
+let allPosts = page.data;
+allPosts = allPosts.reverse();
+
+let renderedPosts = allPosts.slice(page.start, page.end + 1);
+let length = renderedPosts.length;
+
+let i = 0;
+while (i < length) {
+  renderedPosts[i].frontmatter.pubDate = new Date(
+    renderedPosts[i].frontmatter.pubDate
+  ).toLocaleDateString("en-us", {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+  });
+  i++;
+}
+
+// have to make an array due to how astro gens dynamic html
+let pageination = [];
+for (let i = 1; i <= page.lastPage; i++) {
+  pageination.push(i);
+}
+---
+
+<Layout title="Blog">
+  <div
+    class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center"
+  >
+    <h1 class="font-bold tracking-tight text-4xl text-green-400">
+      The Coffee Shop
+    </h1>
+    <p class="text-xl italic text-gray-500">
+      Encouraging Christians to build Christian culture wherever they are and
+      how to think Biblically about work and business.
+    </p>
+    <div class="pt-5">
+      <SecondaryButton href="/tags" title="Categories" />
+    </div>
+  </div>
+  <div class="pt-5 w-100 flex justify-center items-center">
+    <ul class="flex flex-col sm:w-1/2 justify-center px-4 my-4">
+      {
+        renderedPosts.map((post) => (
+          <BlogCard
+            href={post.url}
+            pubDate={post.frontmatter.pubDate}
+            title={post.frontmatter.title}
+            desc={post.frontmatter.description}
+          />
+        ))
+      }
+    </ul>
+  </div>
+  <nav
+    class="flex items-center justify-between px-4 sm:mx-auto sm:max-w-xl lg:max-w-5xl text-center"
+  >
+    <div class="-mt-px flex w-0 flex-1">
+      <a
+        href={page.url.prev === undefined ? "" : `${page.url.prev}`}
+        class="inline-flex items-center border-t-2 border-transparent pt-4 pr-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+      >
+        <!-- Heroicon name: mini/arrow-long-left -->
+        <svg
+          class="mr-3 h-5 w-5 text-gray-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10a.75.75 0 01-.75.75H4.66l2.1 1.95a.75.75 0 11-1.02 1.1l-3.5-3.25a.75.75 0 010-1.1l3.5-3.25a.75.75 0 111.02 1.1l-2.1 1.95h12.59A.75.75 0 0118 10z"
+            clip-rule="evenodd"></path>
+        </svg>
+        Previous
+      </a>
+    </div>
+    <div class="hidden md:-mt-px md:flex">
+      <!-- <a href="#" class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">1</a> -->
+      {
+        pageination.map((i) => (
+          <a
+            href={`/blog/${i}`}
+            class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+          >
+            {i}
+          </a>
+        ))
+      }
+    </div>
+    <div class="-mt-px flex w-0 flex-1 justify-end">
+      <a
+        href={page.url.next === undefined ? "" : `${page.url.next}`}
+        class="inline-flex items-center border-t-2 border-transparent pt-4 pl-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+      >
+        Next
+        <!-- Heroicon name: mini/arrow-long-right -->
+        <svg
+          class="ml-3 h-5 w-5 text-gray-400"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M2 10a.75.75 0 01.75-.75h12.59l-2.1-1.95a.75.75 0 111.02-1.1l3.5 3.25a.75.75 0 010 1.1l-3.5 3.25a.75.75 0 11-1.02-1.1l2.1-1.95H2.75A.75.75 0 012 10z"
+            clip-rule="evenodd"></path>
+        </svg>
+      </a>
+    </div>
+  </nav>
+</Layout>

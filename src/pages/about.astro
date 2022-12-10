@@ -38,42 +38,31 @@ const aboutBlurbs = [
 ---
 
 <Layout title="About">
-  <main class=" pt-20">
-    <div
-      class="max-w-7xl mx-auto px-4 text-center "
-    >
-      <div class="space-y-12">
-        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-          <h1
-            class="font-bold tracking-tight text-4xl text-green-400"
-          >
-            About
-          </h1>
-          <p class="text-xl text-gray-500">Technical Coffee Logic, LLC</p>
-        </div>
-        <ul
-          role="list"
-          class=" flex justify-center"
-        >
-          {
-            people.map((person) => (
-              <TeamCard
-                name={person.name}
-                role={person.role}
-                src={person.imageUrl}
-                twitter={person.twitterUrl}
-              />
-            ))
-          }
-        </ul>
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="space-y-12">
+      <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+        <h1 class="font-bold tracking-tight text-4xl text-green-400">About</h1>
+        <p class="text-xl text-gray-500">Technical Coffee Logic, LLC</p>
       </div>
+      <ul role="list" class="flex justify-center">
+        {
+          people.map((person) => (
+            <TeamCard
+              name={person.name}
+              role={person.role}
+              src={person.imageUrl}
+              twitter={person.twitterUrl}
+            />
+          ))
+        }
+      </ul>
     </div>
-    <ul>
-      {
-        aboutBlurbs.map((blurb) => (
-          <AboutBlock title={blurb.title} blurb={blurb.blurb} />
-        ))
-      }
-    </ul>
-</main>
+  </div>
+  <ul>
+    {
+      aboutBlurbs.map((blurb) => (
+        <AboutBlock title={blurb.title} blurb={blurb.blurb} />
+      ))
+    }
+  </ul>
 </Layout>

@@ -1,0 +1,14 @@
+---
+const {title, blurb, href} = Astro.props;
+---
+
+<li class=" flex justify-start p-4">
+    <div class=" text-gray-700 sm:w-1/2 text-left p-4">
+        <div>
+            <h2 class="font-extrabold text-2xl pb-2">
+                { title }
+            </h2>
+            <a href={href} class=" text-xl tracking-tight underline text-blue-400 ">{ blurb }</a>
+        </div>
+    </div>
+</li>

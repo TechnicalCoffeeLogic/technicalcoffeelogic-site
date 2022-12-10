@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import ProjectCard from "../components/Project-Card.astro";
-import GradientText from "../components/Gradient-Text.astro";
 
 interface iProject {
   href: string;
@@ -28,31 +27,25 @@ const projects = [
 ---
 
 <Layout title="Projects">
-  <main class="pt-20">
-    <div
-      class="max-w-7xl mx-auto px-4 text-center "
-    >
-      <div class="space-y-12">
-        <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
-          <h1
-            class="text-4xl font-bold tracking-tight text-green-400"
-          >
-            Projects
-          </h1>
-        </div>
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <div class="space-y-12">
+      <div class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl">
+        <h1 class="text-4xl font-bold tracking-tight text-green-400">
+          Projects
+        </h1>
       </div>
-      <ul class="flex flex-col items-center">
-        {
-          projects.map((project: iProject) => (
-            <ProjectCard
-              href={project.href}
-              src={project.src}
-              title={project.title}
-              desc={project.desc}
-            />
-          ))
-        }
-      </ul>
     </div>
-  </main>
+    <ul class="flex flex-col items-center">
+      {
+        projects.map((project: iProject) => (
+          <ProjectCard
+            href={project.href}
+            src={project.src}
+            title={project.title}
+            desc={project.desc}
+          />
+        ))
+      }
+    </ul>
+  </div>
 </Layout>

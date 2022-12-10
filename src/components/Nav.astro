@@ -1,5 +1,6 @@
 ---
 import GradientText from "./Gradient-Text.astro";
+const page = 1;
 ---
 
 <div class="fixed w-full z-10 top-0 bg-gray-50">
@@ -50,13 +51,13 @@ import GradientText from "./Gradient-Text.astro";
             >About</a
           >
           <a
-            href="/blog"
+            href={`/blog/${page}`}
             class="text-base font-medium text-gray-500 hover:text-gray-900"
             >Blog</a
           >
 
           <a
-            href="#"
+            href="/contact"
             class="text-base font-medium text-gray-500 hover:text-gray-900"
             >Contact</a
           >
@@ -130,7 +131,7 @@ import GradientText from "./Gradient-Text.astro";
               </a>
 
               <a
-                href="#"
+                href={`/blog/${page}`}
                 class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
               >
                 <span class="ml-3 text-base font-medium text-gray-900"
@@ -139,7 +140,7 @@ import GradientText from "./Gradient-Text.astro";
               </a>
 
               <a
-                href="#"
+                href="/contact"
                 class="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
               >
                 <span class="ml-3 text-base font-medium text-gray-900"

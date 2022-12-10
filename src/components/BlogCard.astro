@@ -1,0 +1,19 @@
+---
+const {href, pubDate, title, desc} = Astro.props;
+---
+
+<li class=" mb-5">
+    <a href={href}>
+      <p class="m-0 ">{pubDate}</p>
+      <p class=" text-xl font-extrabold text-black m-0">
+        {title}
+      </p>
+      <p class=" text-gray-500 italic m-0">
+        {desc}
+      </p>
+      <div class="my-3">
+        <p class=" font-bold text-green-400 m-0">Read Post</p>
+      </div>
+    </a>
+    <hr />
+  </li>

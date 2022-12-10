@@ -3,7 +3,7 @@ const { href, src, title, desc } = Astro.props;
 ---
 
 <li
-  class="shadow-md shadow-blue-200 p-5 m-5 rounded-lg outline outline-1 outline-green-500 w-80"
+  class="shadow-md shadow-blue-200 p-5 m-5 rounded-lg outline outline-1 outline-green-500 w-80 hover:bg-green-200"
 >
   <a href={href}>
     <div class="w-100 flex justify-center m-5">
@@ -11,8 +11,9 @@ const { href, src, title, desc } = Astro.props;
     </div>
 
     <div>
-      <p class="text-xl font-bold">{title}</p>
+      <p class="text-xl font-extrabold">{title}</p>
       <p>{desc}</p>
+      <p class="mt-3">Click to View &rarr;</p>
     </div>
   </a>
 </li>

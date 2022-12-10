@@ -1,35 +1,27 @@
 ---
+import SecondaryButton from "../../components/SecondaryButton.astro";
 import Layout from "../../layouts/Layout.astro";
-const allPosts = await Astro.glob('../blog/*.md');
+const allPosts = await Astro.glob("../blog/*.md");
 const tags = [...new Set(allPosts.map((post) => post.frontmatter.tags).flat())];
 ---
-<Layout title="search tags">
-    <main class="mt-20">
-        <div class="tags">
-            {tags.map((tag) => (
-              <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
-            ))}
-          </div>
-    </main>
-</Layout>
 
-<style>
-    a {
-      color: #00539F;
-    }
-          
-    .tags {
-      display: flex; 
-      flex-wrap: wrap; 
-      margin: 0 auto;  
-    }
-  
-    .tag {
-      margin: 0.25em;
-      border: dotted 1px #a1a1a1;
-      border-radius: .5em;
-      padding: .5em 1em;
-      font-size: 1.15em;
-      background-color: #F8FCFD;
-    }
-  </style>
+<Layout title="search tags">
+    <div
+      class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center"
+    >
+      <h1 class="font-bold tracking-tight text-4xl text-green-400">
+        Categories
+      </h1>
+      <div class="flex flex-wrap ml-0 mt-auto">
+        {
+          tags.map((tag) => (
+            <>
+              <div class=" mx-1 px-1">
+                <SecondaryButton href={`/tags/${tag}`} title={tag} />
+              </div>
+            </>
+          ))
+        }
+      </div>
+    </div>
+</Layout>

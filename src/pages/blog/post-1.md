@@ -1,28 +1,31 @@
 ---
 layout: ../../layouts/MarkdownPostLayout.astro
-title: 'My First Blog Post'
-pubDate: 2022-07-01
-description: 'This is the first post of my new Astro blog.'
-author: 'Astro Learner'
+title: 'A Few Thoughts on Developing An Idea Into a Business or Project'
+pubDate: 2022-05-12
+description: 'A few thoughts on building out an idea into a business / project.'
+author: 'Trevor Convirs'
 image:
-    url: 'https://astro.build/assets/blog/astro-1-release-update/cover.jpeg' 
-    alt: 'The Astro logo with the word One.'
-tags: ["astro", "blogging", "learning in public"]
+    url: 'https://miro.medium.com/max/720/1*h9mjAHUfQcS-dc3l3fQs9A.webp' 
+    alt: 'Journal your business'
+tags: ["business development"]
 ---
-# My First Blog Post
 
-Published on: 2022-07-01
+1.) **Write down everything, do not just put it in your phone.**  
 
-Welcome to my _new blog_ about learning Astro! Here, I will share my learning journey as I build a new website.
+That may be convenient and easy, but something happens when you put pen to paper. When writing ideas out by hand you will begin to notice more ideas flooding in and you begin to think more deeply about your project.
 
-## What I've accomplished
+2.) **Since you are writing ideas out by hand, make sure you carry a notebook with you wherever you go.**
 
-1. **Installing Astro**: First, I created a new Astro project and set up my online accounts.
+This can be any size, but don’t forget it. You never know when new details about your idea will come.
 
-2. **Making Pages**: I then learned how to make pages by creating new `.astro` files and placing them in the `src/pages/` folder.
+3.) **Talk to people about it.**
 
-3. **Making Blog Posts**: This is my first blog post! I now have Astro pages and Markdown posts!
+You probably shouldn’t tell everyone about the project, but find a few people to talk to about it. They don’t have to be experts in the area of your project, actually probably better if they are not experts. The reason is because this makes you slow down and explain your project thoroughly to them. You have to break down complex ideas into smaller comprehensive thoughts. They will ask you really good questions so that you can refine your ideas. For example I talk to my wife about all my projects. One, because she has wisdom that I do not have, and two she asks really good questions about the project since she is not an expert. Her questions make me think of the project from different angles that I had not considered.
 
-## What's next
+4.) **(This is objectively the most important ) Continually pray and submit yourself to Scripture to make sure you are following the Lord’s will.**  
 
-I will finish the Astro tutorial, and then keep adding more posts. Watch this space for more to come.
+This keeps you in check from a multitude of sins, especially greed.
+
+As a side note, I got the idea of writing everything down instead of typing after meditating on Deuteronomy 17:18
+
+>“And when he sits on the throne of his kingdom, he shall write for himself in a book a copy of this law…”

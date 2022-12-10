@@ -1,0 +1,41 @@
+---
+import BaseBlogPostLayout from "./BaseBlogPostLayout.astro";
+export interface Props {
+  title: string;
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseBlogPostLayout title={frontmatter.title}>
+  <div class="flex justify-center p-4">
+    <div class="text-gray-700 sm:w-1/2 text-left p-4">
+      <p class="mx-2 my-0">
+        Published: {
+          new Date(frontmatter.pubDate).toLocaleDateString("en-us", {
+            weekday: "long",
+            month: "long",
+            day: "numeric",
+          })
+        }
+      </p>
+      <h1 class="text-2xl font-extrabold m-2">{frontmatter.title}</h1>
+      <p class="text-xl m-2"><em>{frontmatter.description}</em></p>
+      <p class="my-0 mx-2">Written by: {frontmatter.author}</p>
+      <div class="flex w-100 justify-center mt-10">
+        <img class="shadow rounded-lg" src={frontmatter.image.url} />
+      </div>
+      <div class="text-lg mt-10">
+        <slot />
+      </div>
+      <div>
+        <p class="text-2xl">
+          <em
+            >“These men who have turned the world upside down have come here
+            also” — Acts 17:6</em
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseBlogPostLayout>

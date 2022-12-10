@@ -1,0 +1,14 @@
+---
+const {title, blurb} = Astro.props;
+---
+
+<div class=" flex justify-center p-4">
+    <div class=" text-gray-700 sm:w-1/2 text-left p-4">
+        <div>
+            <h2 class="font-extrabold text-2xl pb-2">
+                { title }
+            </h2>
+            <p class=" text-xl tracking-tight ">{ blurb }</p>
+        </div>
+    </div>
+</div>

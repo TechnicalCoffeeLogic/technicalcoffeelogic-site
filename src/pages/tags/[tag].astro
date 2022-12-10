@@ -1,0 +1,79 @@
+---
+import GradientText from "../../components/Gradient-Text.astro";
+import BlogCard from "../../components/BlogCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import SecondaryButton from "../../components/SecondaryButton.astro";
+
+// getting information about blog posts to create html
+export async function getStaticPaths() {
+  // grab all posts in the blog folder
+  const allPosts = await Astro.glob("../blog/*.md");
+  allPosts.map((post) => {
+    post.frontmatter.pubDate = new Date(
+      post.frontmatter.pubDate
+    ).toLocaleDateString("en-us", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+    });
+  });
+  // dynamically grab all unique tags from posts
+  const uniqueTags = [
+    ...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
+  ];
+
+  return uniqueTags.map((tag) => {
+    const filteredPosts = allPosts.filter((post) => post.frontmatter.tags.includes(tag));
+
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}
+
+interface iPost {
+  frontmatter: {
+    tags: (string | undefined)[];
+    title: string;
+    pubDate: string;
+    description: string;
+  };
+  url: string | URL | null | undefined;
+}
+
+let { tag } = Astro.params;
+if (!tag){
+  tag = "tag";
+}
+
+const { posts } = Astro.props;
+---
+
+<Layout title={tag}>
+  <div
+    class="space-y-5 sm:mx-auto sm:max-w-xl sm:space-y-4 lg:max-w-5xl text-center"
+  >
+    <h1 class="font-extrabold tracking-tight text-4xl text-green-400">
+      Posts tagged with
+    </h1>
+    <p class="italic text-lg font-extrabold">
+      <GradientText>{tag}</GradientText>
+    </p>
+    <SecondaryButton href="/tags" title="Categories" />
+  </div>
+  <div class="pt-20 w-100 flex justify-center items-center">
+    <ul class="flex flex-col sm:w-1/2 justify-center px-4 my-4">
+      {
+        posts.map((post: iPost) => (
+          <BlogCard
+            href={post.url}
+            pubDate={post.frontmatter.pubDate}
+            title={post.frontmatter.title}
+            desc={post.frontmatter.description}
+          />
+        ))
+      }
+    </ul>
+  </div>
+</Layout>

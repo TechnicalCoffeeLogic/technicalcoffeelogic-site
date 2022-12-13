@@ -1,0 +1,1 @@
+:root{--accent: 20, 63, 166;--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #2FFA76 30%, white 60%)}.text-gradient:where(.astro-XLHMS2PK){background-image:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-size:400%;background-position:0%}

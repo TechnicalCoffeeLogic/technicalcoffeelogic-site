@@ -7,7 +7,7 @@ export interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<BaseBlogPostLayout title={frontmatter.title}>
+<BaseBlogPostLayout title={frontmatter.title} metaDesc={frontmatter.description} ogImage={frontmatter.image.url}>
   <div class="flex justify-center p-4">
     <div class="text-gray-700 sm:w-1/2 text-left p-4">
       <p class="mx-2 my-0">
